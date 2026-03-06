@@ -37,6 +37,7 @@ import { triggerHeaderRefresh } from '@/hooks/useHeaderRefresh';
 import { LANGUAGE_LABEL_KEYS, LANGUAGE_ORDER } from '@/utils/constants';
 import { isSupportedLanguage } from '@/utils/language';
 import { useAutoBackup } from '@/features/webdavBackup/hooks/useAutoBackup';
+import { useCpaWardenAutoCheck } from '@/features/cpaWarden/hooks/useCpaWardenAutoCheck';
 
 const sidebarIcons: Record<string, ReactNode> = {
   dashboard: <IconLayoutDashboard size={18} />,
@@ -190,6 +191,8 @@ export function MainLayout() {
 
   // 全局自动备份：只要管理中心打开即生效，无需停留在备份页面
   useAutoBackup();
+  // 全局 cpa_warden 自动检测：只要管理中心打开即生效
+  useCpaWardenAutoCheck();
 
   const apiBase = useAuthStore((state) => state.apiBase);
   const serverVersion = useAuthStore((state) => state.serverVersion);

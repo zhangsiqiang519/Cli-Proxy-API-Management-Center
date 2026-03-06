@@ -46,6 +46,7 @@ import { useAuthFilesStats } from '@/features/authFiles/hooks/useAuthFilesStats'
 import { useAuthFilesStatusBarCache } from '@/features/authFiles/hooks/useAuthFilesStatusBarCache';
 import { readAuthFilesUiState, writeAuthFilesUiState } from '@/features/authFiles/uiState';
 import { useAuthStore, useNotificationStore, useThemeStore } from '@/stores';
+import { CpaWardenCard } from '@/features/cpaWarden/components/CpaWardenCard';
 import type { AuthFileItem } from '@/types';
 import styles from './AuthFilesPage.module.scss';
 
@@ -603,6 +604,8 @@ export function AuthFilesPage() {
           </div>
         )}
       </Card>
+
+      <CpaWardenCard />
 
       <OAuthExcludedCard
         disableControls={disableControls}
